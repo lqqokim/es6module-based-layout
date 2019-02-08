@@ -1,0 +1,229 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden
+}
+
+.container {
+    background-color: #3892D3;
+    height: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+.north {
+    background-color: #3892D3;
+    height: 32px;
+}
+
+.north>p {
+    padding: 5px 0px 0px 5px;
+    margin: 0;
+    color: black;
+    font-size: 13px;
+    font-family: helvetica, arial, verdana, sans-serif;
+}
+
+.main {
+    height: calc(100% - 76px);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/*west*/
+.main .west {
+    float: left;
+    width: 208px;
+    height: 100%;
+}
+
+.main .west .panel {
+    float: left;
+    height: 100%;
+    width: 200px;
+}
+
+.main .west .panel .header {
+    height: 36px;
+    background-color: #157fcc;
+}
+
+.main .west .panel .header .title {
+    position: relative;
+    /*for title top margin*/
+    top: 6px;
+    left: 10px;
+
+    height: 16px;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: arial, helvetica, verdana, sans-serif;
+    line-height: 15px;
+    text-transform: none;
+}
+
+.main .west .panel .content {
+    height: calc(100% - 36px);
+    background-color: white;
+}
+
+.main .west .splitter {
+    float: left;
+    margin: 0;
+    width: 8PX;
+    height: 100%;
+}
+
+/*center*/
+.main .center {
+    float: left;
+    background-color: white;
+    width: calc(100% - 208px - 233px);
+    height: 100%;
+}
+
+.main .center .header {
+    height: 31px;
+    background-color: #157fcc;
+    border-bottom: 5px solid #B4D1EA;
+}
+
+.main .center .header .tab-first {
+    cursor: pointer;
+    width: 96.078px;
+    height: 31px;
+    margin-right: 2px;
+
+    float: left;;
+    background-color: #ADD2ED;
+    border-radius: 3px 3px 0px 0px;
+}
+
+.main .center .header .tab-first .title{
+    position: relative;
+    top: 3px;
+    left: 12px;
+
+    color: #157fcc;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: helvetica, arial, verdana, sans-serif;
+}
+
+.main .center .header .tab-first .close{
+    font-size: 14px;
+    position: relative;
+    top: -5px;
+    right: -24px;
+    color: white;
+}
+
+.main .center .header .tab-second {
+    cursor: pointer;
+    float: left;
+    width: 102.484px;
+    height: 31px;
+    background-color: #4b9cd7;
+    border-radius: 3px 3px 0px 0px;
+}
+
+.main .center .header .tab-second .title{
+    padding: 8px 0px 0px 12px;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: helvetica, arial, verdana, sans-serif;
+}
+
+.main .center .content {
+    height: calc(100% - 36px);
+    background-color: white;
+    overflow-y: scroll;
+
+    color: black;
+    font-size: 13px;
+    font-weight: normal;
+    font-family: helvetica, arial, verdana, sans-serif;
+}
+
+/*east*/
+.main .east {
+    float: right;
+    width: 233px;
+    height: 100%;
+}
+
+.main .east .panel {
+    float: left;
+    height: 100%;
+    width: 225px;
+}
+
+.main .east .panel .header {
+    height: 36px;
+    background-color: #157fcc;
+}
+
+.main .east .panel .header .title {
+    position: relative;
+    /*for title top margin*/
+    top: 6px;
+    left: 10px;
+
+    height: 16px;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: arial, helvetica, verdana, sans-serif;
+    line-height: 15px;
+    text-transform: none;
+}
+
+.main .east .panel .content {
+    height: calc(100% - 36px);
+    background-color: white;
+}
+
+
+.main .east .splitter {
+    float: left;
+    width: 8PX;
+    height: 100%;
+}
+
+/*south*/
+.south {
+    width: 100%;
+    height: 44px;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.south>.splitter {
+    height: 8px;
+}
+
+.south>.title {
+    background-color: #157fcc;
+    height: 100%;
+    /* padding: 5px 9px 10px 9px; */
+}
+
+.south .title>span {
+    position: relative;
+    top: 9px;
+    left: 10px;
+
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: arial, helvetica, verdana, sans-serif;
+    line-height: 15px;
+    text-transform: none;
+}
