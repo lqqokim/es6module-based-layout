@@ -5,13 +5,17 @@ body {
     overflow: hidden
 }
 
+ul {
+    list-style: none;
+}
+
+p {
+    margin: 0;
+}
+
 .container {
     background-color: #3892D3;
     height: 100%;
-}
-
-ul {
-    list-style: none;
 }
 
 .north {
@@ -51,6 +55,25 @@ ul {
     background-color: #157fcc;
 }
 
+.main .west .panel .header img.slide {
+    background-image: url(images/tool-sprites.png);
+    opacity: 0.5;
+    background-color: #157fcc;
+    background-position: 0 -192px;
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    top: 9px;
+    left: 138px;
+}
+
+.main .west .panel .header img.slide:hover {
+    opacity: 0.6;
+}
+
 .main .west .panel .header .title {
     position: relative;
     /*for title top margin*/
@@ -67,8 +90,99 @@ ul {
 }
 
 .main .west .panel .content {
-    height: calc(100% - 36px);
+    height: calc(100% - 42px);
     background-color: white;
+    padding: 5px 5px 0px 5px;
+}
+
+.main .west .panel .content .navigation,
+.main .west .panel .content .settings,
+.main .west .panel .content .information {
+    width: 190px;
+    height: 32px;
+    background-color: #dfeaf2;
+}
+
+.main .west .panel .content .navigation:hover,
+.main .west .panel .content .settings:hover,
+.main .west .panel .content .information:hover {
+    background-color: #E6F1F9;
+}
+
+.main .west .panel .content .content-item {
+    padding: 8px 10px 8px 10px;
+    box-sizing: border-box;
+}
+
+.main .west .panel .content .content-item .title {
+    position: relative;
+    top: -4px;
+
+    font-size: 13px;
+    color: #666666;
+    font-weight: bold;
+    font-family: helvetica, arial, verdana, sans-serif;
+    text-transform: none;
+}
+
+.main .west .panel .content .content-item:not(:first-child) {
+    margin-top: 5px;
+}
+
+.main .west .panel .content img {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+.main .west .panel .content img.tool {
+    position: relative;
+    top: -1px;
+}
+
+.main .west .panel .content img.expand {
+    position: relative;
+    top: -1px;
+
+    cursor: pointer;
+    opacity: 0.5;
+    background-color: #dfeaf2;
+    background-position: 0 -272px;
+}
+
+.main .west .panel .content img.expand:hover {
+    opacity: 0.6;
+}
+
+.main .west .panel .content .navigation .elements img.expand {
+    left: 60px;
+}
+
+.main .west .panel .content .settings .elements img.expand {
+    left: 75px;
+}
+
+.main .west .panel .content .information .elements img.expand {
+    left: 55px;
+}
+
+
+.main .west .panel .content img.expand {
+    background-image: url(images/tool-sprites-dark.png);
+}
+
+.main .west .panel .content .navigation .elements .tool {
+    background-image: url(images/folder_go.png);
+}
+
+.main .west .panel .content .settings .elements .tool {
+    background-image: url(images/folder_wrench.png);
+}
+
+.main .west .panel .content .information .elements .tool {
+    background-image: url(images/information.png);
 }
 
 .main .west .splitter {
@@ -81,7 +195,7 @@ ul {
 /*center*/
 .main .center {
     float: left;
-    background-color: white;
+    background-color: #3892D3;
     width: calc(100% - 208px - 233px);
     height: 100%;
 }
@@ -98,12 +212,12 @@ ul {
     height: 31px;
     margin-right: 2px;
 
-    float: left;;
+    float: left;
     background-color: #ADD2ED;
     border-radius: 3px 3px 0px 0px;
 }
 
-.main .center .header .tab-first .title{
+.main .center .header .tab-first .title {
     position: relative;
     top: 3px;
     left: 12px;
@@ -114,13 +228,17 @@ ul {
     font-family: helvetica, arial, verdana, sans-serif;
 }
 
-.main .center .header .tab-first .close{
+.main .center .header .tab-first .close {
     font-size: 14px;
     position: relative;
     top: -5px;
     right: -24px;
     color: white;
 }
+
+/* .main .center .header .tab-first .close:hover {
+    background-color: #9BBDD5;
+} */
 
 .main .center .header .tab-second {
     cursor: pointer;
@@ -131,7 +249,11 @@ ul {
     border-radius: 3px 3px 0px 0px;
 }
 
-.main .center .header .tab-second .title{
+.main .center .header .tab-second:hover {
+    background-color: #5FA7DB;
+}
+
+.main .center .header .tab-second .title {
     padding: 8px 0px 0px 12px;
     color: white;
     font-size: 13px;
@@ -140,14 +262,24 @@ ul {
 }
 
 .main .center .content {
-    height: calc(100% - 36px);
+    height: calc(100% - 37px);
     background-color: white;
     overflow-y: scroll;
+    padding: 5px;
+    box-sizing: border-box;
 
     color: black;
     font-size: 13px;
     font-weight: normal;
     font-family: helvetica, arial, verdana, sans-serif;
+}
+
+/* .main .center .content .content-item:not(:first-child) {
+    margin-top: 5px; 
+} */
+
+.main .center .content p:not(:first-child) {
+    margin-top: 5px;
 }
 
 /*east*/
@@ -183,8 +315,27 @@ ul {
     text-transform: none;
 }
 
+.main .east .panel .header img.slide {
+    background-image: url(images/tool-sprites.png);
+    opacity: 0.5;
+    background-color: #157fcc;
+    background-position: 0 -176px;
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    top: 9px;
+    left: 135px;
+}
+
+.main .east .panel .header img.slide:hover {
+    opacity: 0.6;
+}
+
 .main .east .panel .content {
-    height: calc(100% - 36px);
+    height: calc(100% - 37px);
     background-color: white;
 }
 
@@ -198,7 +349,7 @@ ul {
 /*south*/
 .south {
     width: 100%;
-    height: 44px;
+    height: 45px;
 
     position: fixed;
     bottom: 0;
@@ -209,21 +360,43 @@ ul {
     height: 8px;
 }
 
-.south>.title {
+.south .panel {
     background-color: #157fcc;
     height: 100%;
     /* padding: 5px 9px 10px 9px; */
 }
 
-.south .title>span {
-    position: relative;
-    top: 9px;
-    left: 10px;
+.south .panel .header{
+    height: 100%;
+}
 
+.south .panel .header .title {
+    position: relative;
+    top: 6px;
+    left: 10px;
     color: white;
     font-size: 13px;
     font-weight: bold;
     font-family: arial, helvetica, verdana, sans-serif;
     line-height: 15px;
     text-transform: none;
+}
+
+.south .panel .header img.slide {
+    background-image: url(images/tool-sprites.png);
+    opacity: 0.5;
+    background-color: #157fcc;
+    background-position: 0 -224px;
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 17px;
+    right: 10px;
+}
+
+.south .panel .header img.slide:hover {
+    opacity: 0.6;
 }
