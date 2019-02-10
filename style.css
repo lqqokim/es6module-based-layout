@@ -35,6 +35,8 @@ p {
     height: calc(100% - 76px);
     margin-left: 5px;
     margin-right: 5px;
+
+    position: relative;
 }
 
 /*west*/
@@ -42,6 +44,16 @@ p {
     float: left;
     width: 208px;
     height: 100%;
+
+    transition:transform .5s ease;
+}
+
+.main .west.opened {
+    transform: translate(0, 0%);
+}
+
+.main .west.closed {
+    transform: translate(-100%, 0);
 }
 
 .main .west .panel {
@@ -55,7 +67,7 @@ p {
     background-color: #157fcc;
 }
 
-.main .west .panel .header img.slide {
+.main .west .panel .header img.slide-btn {
     background-image: url(images/tool-sprites.png);
     opacity: 0.5;
     background-color: #157fcc;
@@ -70,7 +82,7 @@ p {
     left: 139px;
 }
 
-.main .west .panel .header img.slide:hover {
+.main .west .panel .header img.slide-btn:hover {
     opacity: 0.6;
 }
 
@@ -326,7 +338,7 @@ p {
     text-transform: none;
 }
 
-.main .east .panel .header img.slide {
+.main .east .panel .header img.slide-btn {
     background-image: url(images/tool-sprites.png);
     opacity: 0.5;
     background-color: #157fcc;
@@ -341,7 +353,7 @@ p {
     left: 136px;
 }
 
-.main .east .panel .header img.slide:hover {
+.main .east .panel .header img.slide-btn:hover {
     opacity: 0.6;
 }
 
@@ -462,7 +474,7 @@ p {
     text-transform: none;
 }
 
-.south .panel .header img.slide {
+.south .panel .header img.slide-btn {
     background-image: url(images/tool-sprites.png);
     opacity: 0.5;
     background-color: #157fcc;
@@ -477,7 +489,7 @@ p {
     right: 10px;
 }
 
-.south .panel .header img.slide:hover {
+.south .panel .header img.slide-btn:hover {
     opacity: 0.6;
 }
 

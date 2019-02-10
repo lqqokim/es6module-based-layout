@@ -2,29 +2,35 @@ import View from './View.js';
 
 const WestView = Object.create(View);
 
-CenterView.setup = function (el) {
+WestView.setup = function (el) {
     this.init(el);
+    this.slideBtnEl = el.querySelector('.slide-btn');
     this.bindEvents();
     return this;
 }
 
-CenterView.setActiveTab = function () {
+WestView.setActiveTab = function () {
 
 }
 
-CenterView.bindEvents = function () {
-    const tabsEl = this.el.querySelectorAll('.tabs');
-    const tabs = Array.from(tabsEl[0].children);
+WestView.bindEvents = function () {
+    this.slideBtnEl.addEventListener('click', e => {
+        this.el.classList.remove('opened');
+        this.el.classList.add('closed');
+    });
 
-    tabs.forEach(tabEl =>
-        tabEl.addEventListener('click', e => {
-            const tabIndex = tabs.indexOf(tabEl);
-            this.onClickTab(tabIndex);
-        })
-    );
+    // const tabsEl = this.el.querySelectorAll('.tabs');
+    // const tabs = Array.from(tabsEl[0].children);
+
+    // tabs.forEach(tabEl =>
+    //     tabEl.addEventListener('click', e => {
+    //         const tabIndex = tabs.indexOf(tabEl);
+    //         this.onClickTab(tabIndex);
+    //     })
+    // );
 }
 
-CenterView.onClickTab = function (tabIndex) {
+WestView.onClickTab = function (tabIndex) {
     this.emit('@changeTab', tabIndex);
 }
 

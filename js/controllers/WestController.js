@@ -1,8 +1,8 @@
-import WestView from '../views/CenterView.js';
+import WestView from '../views/WestView.js';
 
 const West = {
     init() {
-       
+        WestView.setup(document.querySelector('.west'));
     }
 };
 
