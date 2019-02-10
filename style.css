@@ -200,35 +200,46 @@ p {
     height: 100%;
 }
 
-.main .center .header {
+.main .center .tabs {
     height: 31px;
     background-color: #157fcc;
     border-bottom: 5px solid #B4D1EA;
 }
 
-.main .center .header .tab-first {
+.main .center .tabs .tab{
+    background-color: #4b9cd7;
+    color: white;
+}
+
+.main .center .tabs .tab:hover {
+    background-color: #5FA7DB;
+}
+
+.main .center .tabs .tab.active {
+    background-color: #ADD2ED;
+    color: #157fcc;
+}
+
+.main .center .tabs .first {
     cursor: pointer;
     width: 96.078px;
     height: 31px;
     margin-right: 2px;
-
     float: left;
-    background-color: #ADD2ED;
     border-radius: 3px 3px 0px 0px;
 }
 
-.main .center .header .tab-first span.title {
+.main .center .tabs .first .title {
     position: relative;
     top: 6px;
     left: 12px;
 
-    color: #157fcc;
     font-size: 13px;
     font-weight: bold;
     font-family: helvetica, arial, verdana, sans-serif;
 }
 
-.main .center .header .tab-first span.close {
+.main .center .tabs .first .close {
     top: -17px;
     left: 82px;
     display: block;
@@ -245,22 +256,17 @@ p {
     background-color: #9BBDD5;
 } */
 
-.main .center .header .tab-second {
+.main .center .tabs .second {
     cursor: pointer;
     float: left;
     width: 102.484px;
     height: 31px;
-    background-color: #4b9cd7;
     border-radius: 3px 3px 0px 0px;
 }
 
-.main .center .header .tab-second:hover {
-    background-color: #5FA7DB;
-}
-
-.main .center .header .tab-second .title {
+.main .center .tabs .second .title {
     padding: 8px 0px 0px 12px;
-    color: white;
+
     font-size: 13px;
     font-weight: bold;
     font-family: helvetica, arial, verdana, sans-serif;
@@ -473,4 +479,10 @@ p {
 
 .south .panel .header img.slide:hover {
     opacity: 0.6;
+}
+
+
+.main .center .tabs .first.test {
+    color: red;
+    width: 500px;
 }
