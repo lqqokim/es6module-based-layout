@@ -2,7 +2,9 @@ html,
 body {
     margin: 0;
     height: 100%;
-    overflow: hidden
+    overflow: hidden;
+
+    word-wrap: break-word;
 }
 
 ul {
@@ -35,25 +37,46 @@ p {
     height: calc(100% - 76px);
     margin-left: 5px;
     margin-right: 5px;
-
+    /* transition: transform .5s ease; */
     position: relative;
 }
 
+/* 인터렉션 */
+.west, .east, .south{
+    transition: all 0.5s;
+}
+
+.west .content .expand{
+    height: calc(100% - 115px)
+}
+
+.main.lose-left {
+
+}
+
+.main.lose-left .west {
+    transform: translate(-100%, 0);
+}
+
+.main.lose-left .center {
+    transition: all 0.5s;
+    left: 50px;
+}
+
+/* //인터렉션 */
+
+
 /*west*/
 .main .west {
-    float: left;
+    left:0;
+    bottom: 0;
     width: 208px;
     height: 100%;
-
-    transition: transform .5s ease;
+    position: absolute;
 }
 
 .main .west.opened {
     transform: translate(0, 0%);
-}
-
-.main .west.closed {
-    transform: translate(-100%, 0);
 }
 
 .main .west .panel {
@@ -102,31 +125,27 @@ p {
 }
 
 .main .west .panel .content {
-    height: calc(100% - 42px);
+    height: calc(100% - 47px);
     background-color: white;
     padding: 5px 5px 0px 5px;
 }
 
-.main .west .panel .content .navigation,
-.main .west .panel .content .settings,
-.main .west .panel .content .information {
-    width: 190px;
+.main .west .panel .content .header{
+    width: 188px;
     height: 32px;
     background-color: #dfeaf2;
 }
 
-.main .west .panel .content .navigation:hover,
-.main .west .panel .content .settings:hover,
-.main .west .panel .content .information:hover {
+.main .west .panel .content .header:hover {
     background-color: #E6F1F9;
 }
 
-.main .west .panel .content .content-item {
+.main .west .panel .content .header {
     padding: 8px 10px 8px 10px;
     box-sizing: border-box;
 }
 
-.main .west .panel .content .content-item .title {
+.main .west .panel .content .header .title {
     position: relative;
     top: -3px;
     font-size: 13px;
@@ -137,9 +156,26 @@ p {
     left: 2px;
 }
 
+.main .west .panel .content .content-item {
+    position: relative;
+    border: 1px solid red;
+}
+
+.main .west .panel .content .content-item .area{
+    color: black;
+    font-size: 13px;
+    font-weight: normal;
+    font-family: helvetica, arial, verdana, sans-serif;
+}
+
+
 .main .west .panel .content .content-item:not(:first-child) {
     margin-top: 5px;
 }
+
+/* .main .west .panel .content .body {
+    background-color: blue
+} */
 
 .main .west .panel .content img {
     width: 16px;
@@ -168,15 +204,15 @@ p {
     opacity: 0.6;
 }
 
-.main .west .panel .content .navigation .elements img.expand-btn {
+.main .west .panel .content .navigation img.expand-btn {
     left: 63px;
 }
 
-.main .west .panel .content .settings .elements img.expand-btn {
+.main .west .panel .content .settings img.expand-btn {
     left: 78px;
 }
 
-.main .west .panel .content .information .elements img.expand-btn {
+.main .west .panel .content .information  img.expand-btn {
     left: 58px;
 }
 
@@ -185,15 +221,15 @@ p {
     background-image: url(images/tool-sprites-dark.png);
 }
 
-.main .west .panel .content .navigation .elements .tool {
+.main .west .panel .content .navigation .tool {
     background-image: url(images/folder_go.png);
 }
 
-.main .west .panel .content .settings .elements .tool {
+.main .west .panel .content .settings .tool {
     background-image: url(images/folder_wrench.png);
 }
 
-.main .west .panel .content .information .elements .tool {
+.main .west .panel .content .information .tool {
     background-image: url(images/information.png);
 }
 
@@ -206,9 +242,11 @@ p {
 
 /*center*/
 .main .center {
-    float: left;
     background-color: #3892D3;
-    width: calc(100% - 208px - 233px);
+    /* width: calc(100% - 208px - 233px); */
+    left: 208px;
+    right: 241px;
+    position: absolute;
     height: 100%;
 }
 
@@ -281,7 +319,7 @@ p {
 }
 
 .main .center .content {
-    height: calc(100% - 37px);
+    height: calc(100% - 42px);
     background-color: white;
     overflow-y: scroll;
     padding: 5px;
@@ -299,11 +337,10 @@ p {
 
 /*east*/
 .main .east {
-    float: right;
     width: 233px;
     height: 100%;
-
-    
+    position: absolute;
+    right: 0;
     transition: transform .5s ease;
 }
 
@@ -316,9 +353,7 @@ p {
 }
 
 .main .east .panel {
-    float: left;
-    height: 100%;
-    width: 225px;
+    height: calc(100% - 42px);
 }
 
 .main .east .panel .header {
@@ -361,12 +396,7 @@ p {
 }
 
 .main .east .panel .content {
-    height: calc(100% - 36px - 37px);
-    background-color: white;
-}
-
-.main .east .panel .content {
-    height: calc(100% - 36px - 37px);
+    height: calc(100% - 42px);
     background-color: white;
 }
 
