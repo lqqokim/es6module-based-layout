@@ -1,8 +1,8 @@
-import SouthView from '../views/CenterView.js';
+import SouthView from '../views/SouthView.js';
 
 const South = {
     init() {
-       
+       SouthView.setup(document.querySelector('.south'));
     }
 };
 

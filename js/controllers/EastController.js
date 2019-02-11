@@ -1,17 +1,19 @@
 import EastView from './../views/EastView.js';
+import EastModel from './../models/EastModel.js';
 
 const East = {
     init() {
         EastView.setup(document.querySelector('.east'))
             .on('@changeTab', e => this.onChangeTab(e.detail))
+            .on('@closeTab', e => this.onCloseTab(e.detail));
 
-            this.selectedTab = 0;
-            this.renderView();
+        this.selectedTab = 1;
+        this.renderView();
     },
 
     renderView() {
         EastView.setActiveTab(this.selectedTab);
-        this.getTabContents();
+        this.getGridData();
     },
 
     onChangeTab(index) {
@@ -19,8 +21,14 @@ const East = {
         this.renderView();
     },
 
-    getTabContents() {
+    onCloseTab(index) {
+        this.selectedTab = index - 1; // 기준을 잡아준다.
+        this.renderView();
+    },
 
+    getGridData() {
+        EastModel.getGridData()
+            .then(data => EastView.drawGrid(data));
     }
 };
 

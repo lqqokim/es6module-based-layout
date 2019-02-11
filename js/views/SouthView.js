@@ -2,30 +2,20 @@ import View from './View.js';
 
 const SouthView = Object.create(View);
 
-CenterView.setup = function (el) {
+SouthView.setup = function (el) {
     this.init(el);
+    this.slideBtnEl = el.querySelector('.south .slide-btn');
     this.bindEvents();
     return this;
 }
 
-CenterView.setActiveTab = function () {
+SouthView.bindEvents = function () {
 
-}
-
-CenterView.bindEvents = function () {
-    const tabsEl = this.el.querySelectorAll('.tabs');
-    const tabs = Array.from(tabsEl[0].children);
-
-    tabs.forEach(tabEl =>
-        tabEl.addEventListener('click', e => {
-            const tabIndex = tabs.indexOf(tabEl);
-            this.onClickTab(tabIndex);
-        })
-    );
-}
-
-CenterView.onClickTab = function (tabIndex) {
-    this.emit('@changeTab', tabIndex);
+    //Slide 버튼 이벤트드록
+    this.slideBtnEl.addEventListener('click', e => {
+        this.el.classList.remove('opened');
+        this.el.classList.add('closed');
+    });
 }
 
 export default SouthView;
