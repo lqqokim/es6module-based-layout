@@ -4,35 +4,42 @@ const EastView = Object.create(View);
 
 EastView.setup = function (el) {
     this.init(el);
-    this.tabEls = el.querySelectorAll('.east .tab');
-    this.tabContentEls = el.querySelectorAll('.east .tabcontent');
-    this.closeEl = el.querySelector('.east .close');
-    this.slideBtnEl = el.querySelector('.east .slide-btn');
+    this.createSelector(el);
     this.bindEvents();
     return this;
 }
 
+EastView.createSelector = function(el) {
+    this.mainEl = document.querySelector('.main');
+    this.tabEls = el.querySelectorAll('.east .tab');
+    this.tabContentEls = el.querySelectorAll('.east .tabcontent');
+    this.closeEl = el.querySelector('.east .close');
+    this.slideBtnEl = el.querySelector('.east .slide-btn');
+    this.collapseEl = document.querySelector('.east-collapse');
+}
+
+//이벤트 등록
 EastView.bindEvents = function () {
     const tabsElList =  Array.from(this.tabEls);
 
-    //Tab 클릭 이벤트등록
+    //Tab 클릭
     this.tabEls.forEach((tabEl, index) => {
         tabEl.addEventListener('click', e => {
             this.selectedIndex !== index && this.onClickTab(index);
         });
     });
 
-    //close 클릭 이벤트등록
+    //close 클릭
     this.closeEl.addEventListener('click', e => {
         e.stopPropagation(); //Close버튼 눌렀을때 Tab 클릭에 대한 이벤트 버블링 방지
         const tabIndex = tabsElList.indexOf(this.closeEl.parentNode);
         this.closeTab(tabIndex);
     });
 
-    //Slide 버튼 이벤트드록
+    //slide 버튼 클릭 이벤트등록
     this.slideBtnEl.addEventListener('click', e => {
-        this.el.classList.remove('opened');
-        this.el.classList.add('closed');
+        this.mainEl.classList.add('slide-right');
+        this.collapseEl.classList.add('open');
     });
 }
 

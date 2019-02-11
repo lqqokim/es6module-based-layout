@@ -13,6 +13,20 @@ ul {
 
 p {
     margin: 0;
+
+    color: black;
+    font-size: 13px;
+    font-weight: normal;
+    font-family: helvetica, arial, verdana, sans-serif;
+}
+
+.title {
+    font-size: 13px;
+    font-weight: bold;
+    font-family: helvetica, arial, verdana, sans-serif;
+
+    /* line-height: 16px;
+    text-transform: none; */
 }
 
 .container {
@@ -28,9 +42,6 @@ p {
 .north>p {
     padding: 5px 0px 0px 5px;
     margin: 0;
-    color: black;
-    font-size: 13px;
-    font-family: helvetica, arial, verdana, sans-serif;
 }
 
 .main {
@@ -43,25 +54,37 @@ p {
 
 /* 인터렉션 */
 .west, .east, .south{
-    transition: all 0.5s;
+    transition: all 0.2s;
 }
 
-.west .content .expand{
-    height: calc(100% - 115px)
-}
-
-.main.lose-left {
+.main.slide-left {
 
 }
 
-.main.lose-left .west {
+.main.slide-left .west {
     transform: translate(-100%, 0);
 }
 
-.main.lose-left .center {
+.main.slide-left .center {
     transition: all 0.5s;
     left: 50px;
 }
+
+.main.slide-right .east {
+    transform: translate(103%, 0);
+}
+
+.main.slide-right .center {
+    transition: all 0.5s;
+    right: 50px;
+}
+
+.main.slide-up {
+    transition: all 0.5s;
+    height: calc(100% - 135px);
+}
+
+
 
 /* //인터렉션 */
 
@@ -73,10 +96,6 @@ p {
     width: 208px;
     height: 100%;
     position: absolute;
-}
-
-.main .west.opened {
-    transform: translate(0, 0%);
 }
 
 .main .west .panel {
@@ -114,12 +133,8 @@ p {
     /*for title top margin*/
     top: 7px;
     left: 10px;
-
     height: 16px;
     color: white;
-    font-size: 13px;
-    font-weight: bold;
-    font-family: arial, helvetica, verdana, sans-serif;
     line-height: 15px;
     text-transform: none;
 }
@@ -130,46 +145,48 @@ p {
     padding: 5px 5px 0px 5px;
 }
 
-.main .west .panel .content .header{
+.west .panel .content .header{
     width: 188px;
     height: 32px;
     background-color: #dfeaf2;
 }
 
-.main .west .panel .content .header:hover {
+.west .panel .content .header:hover {
     background-color: #E6F1F9;
 }
 
-.main .west .panel .content .header {
+.west .panel .content .header {
     padding: 8px 10px 8px 10px;
     box-sizing: border-box;
 }
 
-.main .west .panel .content .header .title {
+.west .panel .content .header .title {
     position: relative;
     top: -3px;
-    font-size: 13px;
     color: #666666;
-    font-weight: bold;
-    font-family: helvetica, arial, verdana, sans-serif;
     text-transform: none;
     left: 2px;
 }
 
-.main .west .panel .content .content-item {
+.west .panel .content .content-item {
     position: relative;
     border: 1px solid red;
 }
 
-.main .west .panel .content .content-item .area{
-    color: black;
-    font-size: 13px;
-    font-weight: normal;
-    font-family: helvetica, arial, verdana, sans-serif;
+.west .area{
+    display: none;
+}
+
+.west .content-item.expand{
+    height: calc(100% - 86px);
+}
+
+.west .content-item.expand .area{
+    display: block;
 }
 
 
-.main .west .panel .content .content-item:not(:first-child) {
+.west .panel .content .content-item:not(:first-child) {
     margin-top: 5px;
 }
 
@@ -283,10 +300,6 @@ p {
     position: relative;
     top: 6px;
     left: 12px;
-
-    font-size: 13px;
-    font-weight: bold;
-    font-family: helvetica, arial, verdana, sans-serif;
 }
 
 .main .center .tabs .first .close {
@@ -312,10 +325,6 @@ p {
 
 .main .center .tabs .second .title {
     padding: 8px 0px 0px 12px;
-
-    font-size: 13px;
-    font-weight: bold;
-    font-family: helvetica, arial, verdana, sans-serif;
 }
 
 .main .center .content {
@@ -344,14 +353,6 @@ p {
     transition: transform .5s ease;
 }
 
-.main .east.opened {
-    transform: translate(0, 0%);
-}
-
-.main .east.closed {
-    transform: translate(100%, 0);
-}
-
 .main .east .panel {
     height: calc(100% - 42px);
 }
@@ -369,9 +370,6 @@ p {
 
     height: 16px;
     color: white;
-    font-size: 13px;
-    font-weight: bold;
-    font-family: arial, helvetica, verdana, sans-serif;
     line-height: 15px;
     text-transform: none;
 }
@@ -435,9 +433,6 @@ p {
 }
 
 .main .east .panel .tabs .tab.first span.title {
-    font-size: 13px;
-    font-weight: bold;
-    font-family: helvetica, arial, verdana, sans-serif;
     line-height: 16px;
 }
 
@@ -449,17 +444,11 @@ p {
 }
 
 .main .east .panel .tabs .tab.second span.title {
-    font-size: 13px;
-    font-weight: bold;
-    font-family: helvetica, arial, verdana, sans-serif;
-    /* color: #157fcc; */
-    line-height: 16px;
-
     position: relative;
     top: 6px;
     left: 12px;
-    /* padding: 8px 0px 0px 12px; */
     display: inline-block;
+    line-height: 16px;
 }
 
 .main .east .panel .tabs .tab.second span.close {
@@ -493,13 +482,6 @@ p {
 
 .main .east .panel .content .tabcontent.table {}
 
-.main .east .panel .content .tabcontent.letter {
-    color: black;
-    font-size: 13px;
-    font-weight: normal;
-    font-family: helvetica, arial, verdana, sans-serif;
-}
-
 /*south*/
 .south {
     width: 100%;
@@ -519,15 +501,10 @@ p {
 .south .panel {
     background-color: #157fcc;
     height: 100%;
-    /* padding: 5px 9px 10px 9px; */
 }
 
 .south.opened {
-    transform: translate(0, 0%);
-}
-
-.south.closed {
-    transform: translate( 0, -100%);
+    transform: translate(0, -130%);
 }
 
 .panel .header {
@@ -539,11 +516,7 @@ p {
     top: 9px;
     left: 10px;
     color: white;
-    font-size: 13px;
-    font-weight: bold;
-    font-family: arial, helvetica, verdana, sans-serif;
-    line-height: 15px;
-    text-transform: none;
+
 }
 
 .south .panel .header img.slide-btn {
@@ -565,7 +538,40 @@ p {
     opacity: 0.6;
 }
 
-.main .center .tabs .first.test {
+.south .content {
+    background-color: white;
+    height: 300px;
+}
+
+.center .tabs .first.test {
     color: red;
     width: 500px;
+}
+
+.west-collapse {
+    width: 45px;
+    height: 99%;
+    background-color: green;
+    position: absolute;
+    left: -100px;
+    transition: all 0.6s;
+}
+
+.west-collapse.open {
+    transform: translate(0, 0);
+    left: 0;
+}
+
+.east-collapse {
+    width: 45px;
+    height: 99%;
+    background-color: green;
+    position: absolute;
+    right: -100px;
+    transition: all 0.6s;
+}
+
+.east-collapse.open {
+    transform: translate(0, 0);
+    right: 0;
 }
