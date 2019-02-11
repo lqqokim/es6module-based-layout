@@ -4,8 +4,8 @@ import CenterModel from './../models/CenterModel.js';
 const Center = {
     init() {
         CenterView.setup(document.querySelector('.center'))
-            .on('@changeTab', e => this.onChangeTab(e))
-            .on('@closeTab', e => this.onCloseTab(e));
+            .on('@changeTab', e => this.onChangeTab(e.detail))
+            .on('@closeTab', e => this.onCloseTab(e.detail));
 
         this.selectedTab = 0; //초기에 첫번째 탭선택
         this.renderView(); //Tab을 그린다
@@ -16,13 +16,13 @@ const Center = {
         this.getTabContents();
     },
 
-    onChangeTab(e) {
-        this.selectedTab = e.detail;
+    onChangeTab(index) {
+        this.selectedTab = index;
         this.renderView();
     },
 
-    onCloseTab(e) {
-        this.selectedTab = e.detail + 1; //Tab 삭제하면 다음Tab이 활성화
+    onCloseTab(index) {
+        this.selectedTab = index + 1; //Tab 삭제하면 다음 Tab이 활성화
         this.renderView();
     },
 
