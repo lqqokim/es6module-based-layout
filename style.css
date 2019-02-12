@@ -315,7 +315,7 @@ p {
 
     width: 12px;
     height: 12px;
-    background-image: url(images/tab-default-close.png);
+    background-image: url(./images/tab-default-close.png);
 }
 
 .main .center .tabs .second {
@@ -367,7 +367,6 @@ p {
 
 .main .east .panel .header .title {
     position: relative;
-    /*for title top margin*/
     top: 7px;
     left: 10px;
 
@@ -672,7 +671,7 @@ p {
 }
 
 .center .left-btn {
-    background-image: url(/images/default-scroll-left.png);
+    background-image: url(./images/default-scroll-left.png);
     /* opacity: 0.5; */
     cursor: pointer;
     z-index: 1;
@@ -683,7 +682,7 @@ p {
 }
 
 .center .right-btn {
-    background-image: url(/images/default-scroll-right.png);
+    background-image: url(./images/default-scroll-right.png);
     /* opacity: 0.5; */
     cursor: pointer;
     z-index: 1;
