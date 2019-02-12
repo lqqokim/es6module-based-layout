@@ -18,6 +18,7 @@ WestView.createSelector = function (el) {
     this.collapseEl = document.querySelector('.west-collapse');
     this.collapseBtnEl = document.querySelector('.west-collapse .slide-btn');
     this.areaEls = el.querySelectorAll('.area');
+    this.splitEl = el.querySelector('.split-slider');
 }
 
 WestView.initContentState = function () {
@@ -27,19 +28,19 @@ WestView.initContentState = function () {
 
 WestView.bindEvents = function () {
 
-    //slide 버튼 클릭 이벤트
+    //slide 버튼 클릭
     this.slideBtnEl.addEventListener('click', e => {
         this.mainEl.classList.add('slide-left');
         this.collapseEl.classList.add('open');
     });
 
-    //west collapse에 있는 slide 버튼 클릭 이벤트
+    //west collapse에 있는 slide 버튼 클릭
     this.collapseBtnEl.addEventListener('click', e => {
         this.mainEl.classList.remove('slide-left');
         this.collapseEl.classList.remove('open');
     });
 
-    //expand 버튼 클릭 이벤트
+    //expand 버튼 클릭
     const expandBtnEls = this.expandBtnEls;
     expandBtnEls.forEach((expandBtn, index) => {
         expandBtn.addEventListener('click', e => {
@@ -51,6 +52,18 @@ WestView.bindEvents = function () {
                 this.onNormalItemMove(expandBtn, index);
             }
         });
+    });
+
+    //split 클릭
+    this.splitEl.addEventListener('click', e => {
+        if(!this.mainEl.classList.contains('slide-left')) {
+            this.mainEl.classList.add('slide-left');
+            this.collapseEl.classList.add('open');
+        } else {
+            this.mainEl.classList.remove('slide-left');
+            this.collapseEl.classList.remove('open');
+        }
+
     });
 }
 

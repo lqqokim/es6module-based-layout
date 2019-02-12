@@ -47,6 +47,17 @@ EastView.bindEvents = function () {
         this.mainEl.classList.remove('slide-right');
         this.collapseEl.classList.remove('open');
     });
+
+    // //split 클릭
+    // this.splitEl.addEventListener('click', e => {
+    //     if(this.el.classList.contains('open')) {
+    //         this.mainEl.classList.remove('slide-up');
+    //         this.el.classList.remove('open');
+    //     } else {
+    //         this.mainEl.classList.add('slide-up');
+    //         this.el.classList.add('open');
+    //     }
+    // });
 }
 
 EastView.onClickTab = function (index) {

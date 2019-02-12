@@ -1,4 +1,5 @@
-const gridData = [{
+const gridData = [
+    {
         name: '(name)',
         value: 'Properties Grid'
     },
