@@ -666,3 +666,31 @@ p {
     transform: rotate(90deg);
 }
 
+.center .tabs {
+    position: relative;
+    overflow: hidden;
+}
+
+.center .left-btn {
+    background-image: url(/images/default-scroll-left.png);
+    /* opacity: 0.5; */
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    height: 31px;
+    width: 24px;
+    background-color: blue;
+}
+
+.center .right-btn {
+    background-image: url(/images/default-scroll-right.png);
+    /* opacity: 0.5; */
+    cursor: pointer;
+    z-index: 1;
+    right: 0;
+    position: absolute;
+    height: 31px;
+    width: 24px;
+    background-color: blue;
+    /* background-color: 157fcc; */
+}
