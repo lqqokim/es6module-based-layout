@@ -9,7 +9,7 @@ EastView.setup = function (el) {
     return this;
 }
 
-EastView.createSelector = function(el) {
+EastView.createSelector = function (el) {
     this.mainEl = document.querySelector('.main');
     this.tabEls = el.querySelectorAll('.tab');
     this.tabContentEls = el.querySelectorAll('.tabcontent');
@@ -17,11 +17,12 @@ EastView.createSelector = function(el) {
     this.slideBtnEl = el.querySelector('.slide-btn');
     this.collapseEl = document.querySelector('.east-collapse');
     this.collapseBtnEl = document.querySelector('.east-collapse .slide-btn');
+    this.tableEl = el.querySelector('table');
 }
 
 //이벤트 등록
 EastView.bindEvents = function () {
-    const tabsElList =  Array.from(this.tabEls);
+    const tabsElList = Array.from(this.tabEls);
 
     //Tab 클릭
     this.tabEls.forEach((tabEl, index) => {
@@ -66,7 +67,6 @@ EastView.onClickTab = function (index) {
 
 EastView.closeTab = function (selectedIndex) {
     this.tabEls[selectedIndex].style.display = 'none';
-
     this.onchangeContent(selectedIndex);
     this.emit('@closeTab', selectedIndex);
 }
@@ -74,7 +74,7 @@ EastView.closeTab = function (selectedIndex) {
 EastView.setActiveTab = function (selectedIndex) {
     this.selectedIndex = selectedIndex;
     this.tabEls.forEach((tabEl, index) => {
-        if(index === selectedIndex) {
+        if (index === selectedIndex) {
             tabEl.classList.add('active');
             this.onchangeContent(selectedIndex);
         } else {
@@ -83,21 +83,34 @@ EastView.setActiveTab = function (selectedIndex) {
     });
 }
 
-EastView.onchangeContent = function(selectedIndex) {
+EastView.onchangeContent = function (selectedIndex) {
     this.tabContentEls.forEach((tabContentEl, index) => {
-        if(selectedIndex === index) {
+        if (selectedIndex === index) {
             tabContentEl.style.display = 'block';
         } else {
             tabContentEl.style.display = 'none';
         }
-    }); 
+    });
 }
 
-EastView.drawGrid = function(data) {
-    console.log(data);
+//grid data로 테이블 생성
+EastView.drawGrid = function (datas) {
+    datas.map(data => {
+        const row = document.createElement("tr");
+        const col_name = document.createElement("td");
+        const col_value = document.createElement("td");
+
+        col_name.innerText = data.name;
+        col_value.innerText = data.value;
+
+        row.appendChild(col_name);
+        row.appendChild(col_value);
+        
+        this.tableEl.appendChild(row);
+    });
 }
 
-EastView.sortGridData = function() {
+EastView.sortGridData = function () {
 
 }
 

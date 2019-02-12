@@ -1,3 +1,11 @@
+export default {
+    getGridData() {
+        return new Promise(resolve => {
+            resolve(gridData);
+        });
+    }
+}
+
 const gridData = [
     {
         name: '(name)',
@@ -31,11 +39,3 @@ const gridData = [
         value: 0.01
     },
 ];
-
-export default {
-    getGridData() {
-        return new Promise(res => {
-            res(gridData);
-        });
-    }
-}

@@ -20,6 +20,23 @@ p {
     font-family: helvetica, arial, verdana, sans-serif;
 }
 
+table span {
+    color: #666666;
+    font: bold 13px/15px helvetica, arial, verdana, sans-serif;
+}
+
+th span {
+    padding: 7px 10px 7px 10px;
+    text-overflow: ellipsis;
+}
+
+
+td {
+    text-overflow: ellipsis;
+    padding: 2px 5px 3px 10px;
+    font: normal 13px/15px helvetica, arial, verdana, sans-serif;
+}
+
 .title {
     font-size: 13px;
     font-weight: bold;
@@ -158,6 +175,7 @@ p {
 .west .panel .content .header {
     padding: 8px 10px 8px 10px;
     box-sizing: border-box;
+    transition: all 0.5s;
 }
 
 .west .panel .content .header .title {
@@ -169,6 +187,7 @@ p {
 }
 
 .west .panel .content .content-item {
+    transition: all 0.5s;
     position: relative;
 }
 
@@ -263,7 +282,6 @@ p {
 /*center*/
 .main .center {
     background-color: #3892D3;
-    /* width: calc(100% - 208px - 233px); */
     left: 208px;
     right: 241px;
     position: absolute;
@@ -274,6 +292,7 @@ p {
     height: 31px;
     background-color: #157fcc;
     border-bottom: 5px solid #B4D1EA;
+    overflow-x: auto;
 }
 
 .main .center .tabs .tab {
@@ -683,26 +702,46 @@ p {
     overflow: hidden;
 }
 
+.center .tabs.add-margin {
+    padding: 0 25px 0;
+}
+
 .center .left-btn {
     background-image: url(./images/default-scroll-left.png);
-    /* opacity: 0.5; */
     cursor: pointer;
     z-index: 1;
     position: absolute;
     height: 31px;
     width: 24px;
-    background-color: blue;
+    background-color: #157fcc;;
+    visibility: hidden;
+}
+
+.center .left-btn.visible {
+    visibility: visible;
 }
 
 .center .right-btn {
     background-image: url(./images/default-scroll-right.png);
-    /* opacity: 0.5; */
     cursor: pointer;
     z-index: 1;
     right: 0;
     position: absolute;
     height: 31px;
     width: 24px;
-    background-color: blue;
-    /* background-color: 157fcc; */
+    background-color: #157fcc;;
+    visibility: hidden;
+}
+
+.center .right-btn.visible {
+    visibility: visible;
+}
+
+.center .tab-wrapper {
+    width: 1120px;
+}
+
+.sort-btn.value,
+.sort-btn.name {
+    background-image: url(./images/sort_asc.png);
 }

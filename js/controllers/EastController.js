@@ -9,11 +9,11 @@ const East = {
 
         this.selectedTab = 1;
         this.renderView();
+        this.getGridData();
     },
 
     renderView() {
         EastView.setActiveTab(this.selectedTab);
-        this.getGridData();
     },
 
     onChangeTab(index) {
