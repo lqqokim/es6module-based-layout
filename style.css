@@ -54,7 +54,7 @@ p {
 
 /* 인터렉션 */
 .west, .east, .south{
-    transition: all 0.2s;
+    transition: all 0.1s;
 }
 
 .main.slide-left {
@@ -62,20 +62,20 @@ p {
 }
 
 .main.slide-left .west {
-    transform: translate(-100%, 0);
+    transform: translate(-120%, 0);
 }
 
 .main.slide-left .center {
-    transition: all 0.5s;
+    transition: all 0.3s;
     left: 50px;
 }
 
 .main.slide-right .east {
-    transform: translate(103%, 0);
+    transform: translate(110%, 0);
 }
 
 .main.slide-right .center {
-    transition: all 0.5s;
+    transition: all 0.1s;
     right: 50px;
 }
 
@@ -170,21 +170,21 @@ p {
 
 .west .panel .content .content-item {
     position: relative;
-    border: 1px solid red;
 }
 
 .west .area{
     display: none;
 }
 
+
 .west .content-item.expand{
     height: calc(100% - 86px);
+    background-position: 0 -192px;
 }
 
 .west .content-item.expand .area{
     display: block;
 }
-
 
 .west .panel .content .content-item:not(:first-child) {
     margin-top: 5px;
@@ -196,7 +196,6 @@ p {
 
 .main .west .panel .content img {
     width: 16px;
-    height: 16px;
     margin: 0;
     overflow: hidden;
     border: 0;
@@ -207,13 +206,17 @@ p {
     top: 0px;
 }
 
-.main .west .panel .content img.expand-btn {
+.west img.expand-btn {
     position: relative;
     top: 0px;
 
     cursor: pointer;
     opacity: 0.5;
     background-color: #dfeaf2;
+    background-position: 16px 128px;
+}
+
+.west img.expand-btn.change-expand {
     background-position: 0 -272px;
 }
 
@@ -350,7 +353,7 @@ p {
     height: 100%;
     position: absolute;
     right: 0;
-    transition: transform .5s ease;
+    /* transition: transform .5s ease; */
 }
 
 .main .east .panel {
@@ -503,7 +506,7 @@ p {
     height: 100%;
 }
 
-.south.opened {
+.south.open {
     transform: translate(0, -130%);
 }
 
@@ -519,7 +522,7 @@ p {
 
 }
 
-.south .panel .header img.slide-btn {
+.south img.slide-btn {
     background-image: url(images/tool-sprites.png);
     opacity: 0.5;
     background-color: #157fcc;
@@ -534,6 +537,10 @@ p {
     right: 10px;
 }
 
+.south.open img.slide-btn {
+    background-position: 0 -208px;
+}
+
 .south .panel .header img.slide-btn:hover {
     opacity: 0.6;
 }
@@ -543,18 +550,57 @@ p {
     height: 300px;
 }
 
-.center .tabs .first.test {
-    color: red;
-    width: 500px;
+.east-collapse {
+    width: 45px;
+    height: 99%;
+    background-color: #157FCC;
+    position: absolute;
+    right: -100px;
+    transition: all 0.1s;
+}
+
+.east-collapse.open {
+    transform: translate(0, 0);
+    right: 0;
+}
+
+.east-collapse .title {
+    transform: rotate(90deg);
+    color: white;
+    margin-top: 50px;
+
+    width: 100px;
+    position: relative;
+    top: 25px;
+    right: 28px;
+}
+
+.east-collapse .slide-btn {
+    background-image: url(images/tool-sprites.png);
+    opacity: 0.5;
+    background-color: #157fcc;
+    background-position: 0 -192px;
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 14px;
+}
+
+.east-collapse .slide-btn:hover {
+    opacity: 0.6;
 }
 
 .west-collapse {
     width: 45px;
     height: 99%;
-    background-color: green;
+    background-color: #157FCC;
     position: absolute;
     left: -100px;
-    transition: all 0.6s;
+    transition: all 0.1s;
 }
 
 .west-collapse.open {
@@ -562,16 +608,61 @@ p {
     left: 0;
 }
 
-.east-collapse {
-    width: 45px;
-    height: 99%;
-    background-color: green;
-    position: absolute;
-    right: -100px;
-    transition: all 0.6s;
+.west-collapse .title {
+    transform: rotate(90deg);
+    color: white;
+    margin-top: 50px;
 }
 
-.east-collapse.open {
-    transform: translate(0, 0);
-    right: 0;
+.west-collapse .slide-btn {
+    background-image: url(images/tool-sprites.png);
+    opacity: 0.5;
+    background-color: #157fcc;
+    background-position: 0 -176px;
+    overflow: hidden;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 14px;
 }
+
+.west-collapse .slide-btn:hover {
+    opacity: 0.6;
+}
+
+.south .split-slider {
+    position: relative;
+    width: 50px;
+    height: 7px;
+    background-image: url(./images/mini-top.png);
+    margin: auto;
+    top: -5px;
+}
+
+.west .split-slider {
+    width: 50px;
+    height: 7px;
+    background-image: url(./images/mini-top.png);
+    left: 179px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transform: rotate(270deg);
+}
+
+.east .split-slider {
+    width: 50px;
+    height: 7px;
+    background-image: url(./images/mini-top.png);
+    left: -29px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transform: rotate(90deg);
+}
+

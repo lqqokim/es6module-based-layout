@@ -3,9 +3,9 @@ import View from './View.js';
 const CenterView = Object.create(View);
 
 CenterView.setup = function (el) {
-    this.tabEls = el.querySelectorAll('.center .tab');
-    this.closeEl = el.querySelector('.tab .close');
-    this.contentEl = el.querySelector('.center .content');
+    this.tabEls = el.querySelectorAll('.tab');
+    this.closeEl = el.querySelector('.close');
+    this.contentEl = el.querySelector('.content');
 
     this.init(el);
     this.bindEvents();

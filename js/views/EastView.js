@@ -11,11 +11,12 @@ EastView.setup = function (el) {
 
 EastView.createSelector = function(el) {
     this.mainEl = document.querySelector('.main');
-    this.tabEls = el.querySelectorAll('.east .tab');
-    this.tabContentEls = el.querySelectorAll('.east .tabcontent');
-    this.closeEl = el.querySelector('.east .close');
-    this.slideBtnEl = el.querySelector('.east .slide-btn');
+    this.tabEls = el.querySelectorAll('.tab');
+    this.tabContentEls = el.querySelectorAll('.tabcontent');
+    this.closeEl = el.querySelector('.close');
+    this.slideBtnEl = el.querySelector('.slide-btn');
     this.collapseEl = document.querySelector('.east-collapse');
+    this.collapseBtnEl = document.querySelector('.east-collapse .slide-btn');
 }
 
 //이벤트 등록
@@ -40,6 +41,11 @@ EastView.bindEvents = function () {
     this.slideBtnEl.addEventListener('click', e => {
         this.mainEl.classList.add('slide-right');
         this.collapseEl.classList.add('open');
+    });
+
+    this.collapseBtnEl.addEventListener('click', e => {
+        this.mainEl.classList.remove('slide-right');
+        this.collapseEl.classList.remove('open');
     });
 }
 

@@ -11,15 +11,20 @@ SouthView.setup = function (el) {
 
 SouthView.createSelector = function(el) {
     this.mainEl = document.querySelector('.main');
-    this.slideBtnEl = el.querySelector('.south .slide-btn');
+    this.slideBtnEl = el.querySelector('.slide-btn');
 }
 
 SouthView.bindEvents = function () {
 
-    //Slide 버튼 이벤트 등록
+    //slide 버튼 클릭 이벤트
     this.slideBtnEl.addEventListener('click', e => {
-        this.mainEl.classList.add('slide-up');
-        this.el.classList.add('opened');
+        if(this.el.classList.contains('open')) {
+            this.mainEl.classList.remove('slide-up');
+            this.el.classList.remove('open');
+        } else {
+            this.mainEl.classList.add('slide-up');
+            this.el.classList.add('open');
+        }
     });
 }
 
