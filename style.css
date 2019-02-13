@@ -26,7 +26,7 @@ table span {
 }
 
 th span {
-    padding: 7px 10px 7px 10px;
+    padding: 7px 0 7px 10px;
     text-overflow: ellipsis;
 }
 
@@ -71,11 +71,8 @@ td {
 
 /* 인터렉션 */
 .west, .east, .south{
+    z-index: 100;;
     transition: all 0.1s;
-}
-
-.main.slide-left {
-
 }
 
 .main.slide-left .west {
@@ -187,7 +184,8 @@ td {
 }
 
 .west .panel .content .content-item {
-    transition: all 0.5s;
+    height: 32px;
+    transition: all 0.3s;
     position: relative;
 }
 
@@ -197,7 +195,7 @@ td {
 
 
 .west .content-item.expand{
-    height: calc(100% - 86px);
+    height: calc(100% - 86px) !important;
     background-position: 0 -192px;
 }
 
@@ -292,7 +290,7 @@ td {
     height: 31px;
     background-color: #157fcc;
     border-bottom: 5px solid #B4D1EA;
-    overflow-x: auto;
+    /* overflow-x: auto; */
 }
 
 .main .center .tabs .tab {
@@ -741,7 +739,52 @@ td {
     width: 1120px;
 }
 
-.sort-btn.value,
-.sort-btn.name {
+.value .sort-btn,
+.name .sort-btn {
+    /* background-image: url(./images/sort_asc.png); */
+}
+
+th.active {
+    background-color: #EEF6FB;
+}
+
+th.active .sort-btn.asc {
     background-image: url(./images/sort_asc.png);
+} 
+
+th.active .sort-btn.desc {
+    background-image: url(./images/sort_desc.png);
+}
+
+.east-collapse .split-slider {
+    cursor: pointer;
+    width: 50px;
+    height: 7px;
+    background-image: url(./images/mini-top.png);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transform: rotate(270deg);
+    left: -28px;
+}
+
+.west-collapse .split-slider {
+    cursor: pointer;
+    width: 50px;
+    height: 7px;
+    background-image: url(./images/mini-top.png);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transform: rotate(90deg);
+    left: 22px;
+}
+
+.sort-btn {
+    padding: 0;
+    padding-right: 17px;
+    background-position: right center;
+    background-repeat: no-repeat;
 }

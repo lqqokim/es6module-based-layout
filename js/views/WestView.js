@@ -19,6 +19,7 @@ WestView.createSelector = function (el) {
     this.collapseBtnEl = document.querySelector('.west-collapse .slide-btn');
     this.areaEls = el.querySelectorAll('.area');
     this.splitEl = el.querySelector('.split-slider');
+    this.collapseSplitEl = document.querySelector('.west-collapse .split-slider');
 }
 
 WestView.initContentState = function () {
@@ -65,6 +66,11 @@ WestView.bindEvents = function () {
         }
 
     });
+
+    this.collapseSplitEl.addEventListener('click', e => {
+        this.mainEl.classList.remove('slide-left');
+            this.collapseEl.classList.remove('open');
+    })
 }
 
 WestView.onFirstItemMove = function (firstBtnEl, index) {
@@ -87,7 +93,6 @@ WestView.onFirstItemMove = function (firstBtnEl, index) {
             }
         }
     }
-
 }
 
 WestView.onLastItemMove = function (lastBtnEl, index) {
