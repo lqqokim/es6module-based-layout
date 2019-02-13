@@ -63,11 +63,11 @@ EastView.bindEvents = function () {
 
     //table header 클릭
     this.tableHeadEls.forEach((tableHeadEl, index) => {
+
         const tableHeadList = Array.from(this.tableHeadEls);
 
         tableHeadEl.addEventListener('click', e => {
             const selectedSortBtnEl = tableHeadEl.children[1];
-
             if (!tableHeadEl.classList.contains('active')) {
                 for (let i = 0; i < tableHeadList.length; i++) {
                     if (tableHeadList[i].classList.contains('active')) {
@@ -80,13 +80,20 @@ EastView.bindEvents = function () {
                 tableHeadEl.classList.add('active');
                 tableHeadEl.children[1].classList.add('asc');
             } else {
+                let sortType;
+
                 if (selectedSortBtnEl.classList.contains('asc')) {
                     selectedSortBtnEl.classList.remove('asc');
                     selectedSortBtnEl.classList.add('desc');
+                    sortType = 'desc';
                 } else if (!selectedSortBtnEl.classList.contains('asc')) {
                     selectedSortBtnEl.classList.remove('desc');
                     selectedSortBtnEl.classList.add('asc');
+                    sortType = 'asc';
                 }
+
+                const colname = tableHeadEl.classList.value.replace('active', '');
+                this.sortGridData(this.datas, sortType, colname.trim());
             }
         })
     })
@@ -116,17 +123,10 @@ EastView.onchangeContent = function (selectedIndex) {
     });
 }
 
-//table header클릭에 따른 활성화
-EastView.setActiveTableHeader = function () {
-    this.tableThEls.forEach((tableThEl, index) => {
-        tableThEl.addEventListener('click', e => {
-
-        });
-    });
-}
-
 //grid data로 테이블 생성
 EastView.drawGrid = function (datas) {
+    this.datas = datas;
+    
     datas.map(data => {
         const row = document.createElement("tr");
         const col_name = document.createElement("td");
@@ -137,14 +137,39 @@ EastView.drawGrid = function (datas) {
 
         row.appendChild(col_name);
         row.appendChild(col_value);
+        row.classList.add('row');
 
-        this.tableEl.appendChild(row);
+        document.querySelector('table').appendChild(row);
     });
 }
 
 //grid data sorting 
-EastView.sortGridData = function () {
+EastView.sortGridData = function (gridData, type, key) {
+    if (type === "asc") {
+        gridData.sort((a, b) => {
+            if (a[key] > b[key]) return 1;
+            if (a[key] < b[key]) return -1;
+            return 0;
+        })
+    } else if (type === 'desc') {
+        gridData.sort((a, b) => {
+            if (a[key] < b[key]) return 1;
+            if (a[key] > b[key]) return -1;
+            return 0;
+        })
+    }
 
+    setTimeout(() => {
+        this.datas = gridData;
+        Array.from(this.el.querySelectorAll('tr'), (el) => {
+            if (el.classList.contains('row')) {
+                el.remove();
+            }
+
+        });
+
+        this.drawGrid(this.datas);
+    }, 100);
 }
 
 EastView.closeSide = function () {

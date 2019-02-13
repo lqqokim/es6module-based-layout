@@ -23,9 +23,8 @@ CenterView.bindEvents = function () { //이벤트 등록
 
     //Resize에 의한 스크롤 버튼 생성
     window.addEventListener('resize', e => {
-        console.log(this.tabEls[0].offsetWidth + this.tabEls[1].offsetWidth)
-        if (this.tabEls[0].offsetWidth + this.tabEls[1].offsetWidth
-            > this.tabsEl.offsetWidth) {
+        if (this.tabEls[0].offsetWidth + this.tabEls[1].offsetWidth >
+            this.tabsEl.offsetWidth) {
             this.leftMoveBtnEl.classList.add('visible');
             this.rightMoveBtnEl.classList.add('visible');
             this.tabsEl.classList.add('add-margin');
@@ -49,6 +48,16 @@ CenterView.bindEvents = function () { //이벤트 등록
         const tabIndex = tabsElList.indexOf(this.closeEl.parentNode);
         this.closeTab(tabIndex);
     });
+
+    this.leftMoveBtnEl.addEventListener('click', e => {
+        let left = Number(document.querySelector('.tab-wrapper').style.left.split('p')[0]);
+        document.querySelector('.tab-wrapper').style.left = left + 4 + 'px';
+    });
+
+    this.rightMoveBtnEl.addEventListener('click', e => {
+        let left = Number(document.querySelector('.tab-wrapper').style.left.split('p')[0]);
+        document.querySelector('.tab-wrapper').style.left = left - 4 + 'px';
+    });
 }
 
 CenterView.onClickTab = function (index) {
@@ -64,10 +73,9 @@ CenterView.closeTab = function (tabIndex) {
 }
 
 CenterView.setActiveTab = function (selectedIndex) {
-    console.log(this);
     this.tabEls.forEach((tabEl, index) => {
-        index === selectedIndex
-            ? tabEl.classList.add('active') : tabEl.classList.remove('active');
+        index === selectedIndex ?
+            tabEl.classList.add('active') : tabEl.classList.remove('active');
     });
 }
 

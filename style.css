@@ -207,10 +207,6 @@ td {
     margin-top: 5px;
 }
 
-/* .main .west .panel .content .body {
-    background-color: blue
-} */
-
 .main .west .panel .content img {
     width: 16px;
     margin: 0;
@@ -736,6 +732,7 @@ td {
 }
 
 .center .tab-wrapper {
+    position: absolute;
     width: 1120px;
 }
 

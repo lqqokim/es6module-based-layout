@@ -13,11 +13,11 @@ const gridData = [
     },
     {
         name: 'autoFitColumns',
-        value: true
+        value: 'true'
     },
     {
         name: 'borderWidth',
-        value: 1
+        value: '1'
     },
     {
         name: 'created',
@@ -25,17 +25,17 @@ const gridData = [
     },
     {
         name: 'grouping',
-        value: false
+        value: 'false'
     },
     {
         name: 'productionQuality',
-        value: false
+        value: 'false'
     }, {
         name: 'tested',
-        value: false
+        value: 'false'
     },
     {
         name: 'version',
-        value: 0.01
+        value: '0.01'
     },
 ];
