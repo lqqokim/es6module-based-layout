@@ -53,7 +53,6 @@ EastView.bindEvents = function () {
 
     //split 클릭
     this.splitEl.addEventListener('click', (e) => {
-        // console.log(this, e);
         this.el.classList.contains('open') ? this.closeSide() : this.openSide();
     });
 
@@ -63,7 +62,6 @@ EastView.bindEvents = function () {
 
     //table header 클릭
     this.tableHeadEls.forEach((tableHeadEl, index) => {
-
         const tableHeadList = Array.from(this.tableHeadEls);
 
         tableHeadEl.addEventListener('click', e => {
@@ -126,7 +124,8 @@ EastView.onchangeContent = function (selectedIndex) {
 //grid data로 테이블 생성
 EastView.drawGrid = function (datas) {
     this.datas = datas;
-    
+    const tableEl = document.querySelector('table');
+
     datas.map(data => {
         const row = document.createElement("tr");
         const col_name = document.createElement("td");
@@ -137,9 +136,9 @@ EastView.drawGrid = function (datas) {
 
         row.appendChild(col_name);
         row.appendChild(col_value);
-        row.classList.add('row');
+        row.classList.add('row'); 
 
-        document.querySelector('table').appendChild(row);
+        tableEl.appendChild(row);
     });
 }
 
@@ -159,17 +158,13 @@ EastView.sortGridData = function (gridData, type, key) {
         })
     }
 
-    setTimeout(() => {
-        this.datas = gridData;
-        Array.from(this.el.querySelectorAll('tr'), (el) => {
-            if (el.classList.contains('row')) {
-                el.remove();
-            }
+    Array.from(this.el.querySelectorAll('tr'), (el) => {
+        if (el.classList.contains('row')) { //header는 남기고 row class를 가진 것만 제거
+            el.remove();
+        }
+    });
 
-        });
-
-        this.drawGrid(this.datas);
-    }, 100);
+    this.drawGrid(gridData);
 }
 
 EastView.closeSide = function () {

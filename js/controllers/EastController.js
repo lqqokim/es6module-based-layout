@@ -22,7 +22,7 @@ const East = {
     },
 
     onCloseTab(index) {
-        this.selectedTab = index - 1; // 기준을 잡아준다.
+        this.selectedTab = index - 1;
         this.renderView();
     },
 

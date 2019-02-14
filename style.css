@@ -65,11 +65,10 @@ td {
     height: calc(100% - 76px);
     margin-left: 5px;
     margin-right: 5px;
-    /* transition: transform .5s ease; */
     position: relative;
 }
 
-/* 인터렉션 */
+
 .west, .east, .south{
     z-index: 100;;
     transition: all 0.1s;
@@ -97,10 +96,6 @@ td {
     transition: all 0.5s;
     height: calc(100% - 135px);
 }
-
-
-
-/* //인터렉션 */
 
 
 /*west*/
@@ -361,24 +356,23 @@ td {
 }
 
 /*east*/
-.main .east {
+.east {
     width: 233px;
     height: 100%;
     position: absolute;
     right: 0;
-    /* transition: transform .5s ease; */
 }
 
-.main .east .panel {
+.east .panel {
     height: calc(100% - 42px);
 }
 
-.main .east .panel .header {
+.east .panel .header {
     height: 36px;
     background-color: #157fcc;
 }
 
-.main .east .panel .header .title {
+.east .panel .header .title {
     position: relative;
     top: 7px;
     left: 10px;
@@ -389,7 +383,7 @@ td {
     text-transform: none;
 }
 
-.main .east .panel .header img.slide-btn {
+.east .panel .header img.slide-btn {
     background-image: url(images/tool-sprites.png);
     opacity: 0.5;
     background-color: #157fcc;
@@ -404,22 +398,21 @@ td {
     left: 136px;
 }
 
-.main .east .panel .header img.slide-btn:hover {
+.east .panel .header img.slide-btn:hover {
     opacity: 0.6;
 }
 
-.main .east .panel .content {
+.east .panel .content {
     height: calc(100% - 42px);
     background-color: white;
 }
-
-.main .east .splitter {
+.east .splitter {
     float: left;
     width: 8PX;
     height: 100%;
 }
 
-.main .east .panel .tabs {
+.east .panel .tabs {
     height: 31px;
     border-top: 5px solid #ADD2ED;
     background-color: #157fcc;
@@ -734,11 +727,6 @@ td {
 .center .tab-wrapper {
     position: absolute;
     width: 1120px;
-}
-
-.value .sort-btn,
-.name .sort-btn {
-    /* background-image: url(./images/sort_asc.png); */
 }
 
 th.active {

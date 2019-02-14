@@ -22,7 +22,7 @@ const Center = {
     },
 
     onCloseTab(index) {
-        this.selectedTab = index + 1; //Tab 삭제하면 다음 Tab이 활성화
+        this.selectedTab = index + 1;
         this.renderView();
     },
 
